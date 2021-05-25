@@ -7,6 +7,7 @@ h1 {
     margin-bottom: 200px;
     text-align: center;        
     font-size: 40px;
+    color: whitesmoke
 }
 
 .container {
@@ -21,8 +22,28 @@ h1 {
 }
 
 .square {
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(201, 201, 201, 0.692);
     height: 25px;
     width: 25px;
+}
+
+button {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 15px;
+    background-color: rgb(201, 201, 201, 0.692);    
+    color: black;
+    display: inline-block;
+    border: 0.1em solid black; 
+}
+
+button:hover {
+    background-color: whitesmoke;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
 }
 
