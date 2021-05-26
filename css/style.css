@@ -23,8 +23,6 @@ h1 {
 
 .square {
     background-color: rgba(201, 201, 201, 0.692);
-    height: 25px;
-    width: 25px;
 }
 
 button {
@@ -41,9 +39,10 @@ button:hover {
 }
 
 .btn {
+    width: 400px;
+    margin:0px auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 25px;
 }
-
