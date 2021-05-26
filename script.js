@@ -13,6 +13,7 @@ randomBtn.addEventListener("click", () => {
 })
 
 function createBoard(rowSize) {
+    rowSize = rowSize || 16;
     let boardSize = rowSize * rowSize;
     let squareHight = (400 / rowSize) + "px";
     let squareWidth = (400 / rowSize) + "px";
@@ -27,27 +28,43 @@ function createBoard(rowSize) {
     }
 }
 
-
 function changeColor(e) {
     e.target.style.backgroundColor = "pink";
-};
+}
+
+function changeToRandomColor(e) {
+    let r = Math.random()*256|0;
+    let b = Math.random()*256|0;
+    let g = Math.random()*256|0;
+    e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+}
+
+function randomColor() {
+    const square = container.querySelectorAll(".square")
+    for (let i = 0; i < square.length; i++){
+        square[i].removeEventListener("mouseover", changeColor);
+        square[i].addEventListener("mouseover", changeToRandomColor);
+    }
+}
 
 
 function resetBoard() {
     let rowSize = prompt("How many squares per side? (Maximum: 100)");
-    rowSize = parseInt(rowSize);
-
-    if(isNaN(rowSize)) {
-        window.alert("Please enter a positive number between 1 and 100.");
-        return;
-    } else if (rowSize > 100) {
-        window.alert("Please enter a positive number between 1 and 100.");
-        return;
-    } else if (rowSize <= 0) {
-        window.alert("Please enter a positive number between 1 and 100.");
-        return;
+    if(rowSize == "") {
+        rowSize = 16
+    } else {
+        rowSize = parseInt(rowSize);
+        if(isNaN(rowSize)) {
+            window.alert("Please enter a positive number between 1 and 100.");
+            return;
+        }else if (rowSize > 100) {
+            window.alert("Please enter a positive number between 1 and 100.");
+            return;
+        }else if (rowSize <= 0) {
+            window.alert("Please enter a positive number between 1 and 100.");
+            return;
+        }
     }
-
     while (container.firstChild) container.removeChild(container.firstChild); 
     createBoard(rowSize);
 }
